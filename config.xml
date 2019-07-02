@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<deep>
+    <udp port="5555" cyklop="192.168.0.2" deep="192.168.0.3" />
+</deep>

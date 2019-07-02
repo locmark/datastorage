@@ -27,10 +27,13 @@ class Udp {
             TryInit();
         }
 
-        void TryInit() {
+        void TryInit(bool amIDeep) {
             try {
                 udpServer = new udp_client_server::udp_server("0.0.0.0", config->GetUdpPort());
-                udpClient = new udp_client_server::udp_client(config->GetUdpCyklopIp(), config->GetUdpPort());
+                if (amIDeep)
+                    udpClient = new udp_client_server::udp_client(config->GetUdpCyklopIp(), config->GetUdpPort());
+                else
+                    udpClient = new udp_client_server::udp_client(config->GetUdpDeepIp(), config->GetUdpPort());
                 // udpClient = new udp_client_server::udp_client(config->GetUdpCyklopIp(), 5556);  // for testing
 
                 // start deamon thread
@@ -43,7 +46,7 @@ class Udp {
                 delete this->udpServer;
                 delete this->udpClient;
                 sleep(2);
-                new thread(&Udp::TryInit, this);    // try to init in separate thread
+                new thread(&Udp::TryInit, this, amIDeep);    // try to init in separate thread
             }
         }
 

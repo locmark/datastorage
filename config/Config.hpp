@@ -27,6 +27,10 @@ public:
     char* GetUdpCyklopIp() {
         return (char*) doc.child("deep").child("udp").attribute("cyklop").as_string();
     }
+
+    char* GetUdpDeepIp() {
+        return (char*) doc.child("deep").child("udp").attribute("deep").as_string();
+    }
 };
 
 extern Config* config;
