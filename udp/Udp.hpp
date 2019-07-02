@@ -23,8 +23,8 @@ class Udp {
         thread* daemonThread;
         vector< function<void(void* value)> > propertiesCallbacks;
     public:
-        Udp() {
-            TryInit();
+        Udp(bool amIDeep) {
+            this->TryInit(amIDeep);
         }
 
         void TryInit(bool amIDeep) {

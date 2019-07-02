@@ -12,7 +12,7 @@ private:
     pugi::xml_document doc;
 public:
     Config(){
-        pugi::xml_parse_result result = doc.load_file("config.xml");
+        pugi::xml_parse_result result = doc.load_file("DataStorage/config.xml");
         logger->Log("config", result.description());
     }
     
