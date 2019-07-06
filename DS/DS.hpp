@@ -5,24 +5,63 @@
 
 class DataStorage {
     public:
-    Property<int> engine1;
-    Property<int> engine2;
-    Property<int> engine3;
-    Property<int> engine4;
-    Property<int> engine5;
-    Property<int> engine6;
+    Property<int> engine1_speed;
+    Property<int> engine2_speed;
+    Property<int> engine3_speed;
+    Property<int> engine4_speed;
+    Property<int> engine5_speed;
+    Property<int> engine6_speed;
 
-    Property<float> roll;
-    Property<float> pitch;
-    Property<float> yaw;
+    Property<float> current_pos_x;
+    Property<float> current_pos_y;
+    Property<float> current_pos_z;
+    Property<float> current_pos_pitch;
+    Property<float> current_pos_roll;
+    Property<float> current_pos_yaw;
 
-    Property<float> accX;
-    Property<float> accY;
-    Property<float> accZ;
+    Property<float> dest_pos_x;
+    Property<float> dest_pos_y;
+    Property<float> dest_pos_z;
+    Property<float> dest_pos_pitch;
+    Property<float> dest_pos_roll;
+    Property<float> dest_pos_yaw;
 
-    Property<float> accRoll;
-    Property<float> accPitch;
-    Property<float> accYaw;
+    Property<bool> module1_power_switch;
+    Property<bool> module2_power_switch;
+    Property<bool> module3_power_switch;
+    Property<bool> module4_power_switch;
+    Property<bool> module5_power_switch;
+    Property<bool> module6_power_switch;
+    Property<bool> module7_power_switch;
+    Property<bool> module8_power_switch;
+
+    Property<float> module1_current;
+    Property<float> module2_current;
+    Property<float> module3_current;
+    Property<float> module4_current;
+    Property<float> module5_current;
+    Property<float> module6_current;
+    Property<float> module7_current;
+    Property<float> module8_current;
+
+    Property<float> PID1_P;
+    Property<float> PID1_I;
+    Property<float> PID1_D;
+    Property<float> PID2_P;
+    Property<float> PID2_I;
+    Property<float> PID2_D;
+    Property<float> PID3_P;
+    Property<float> PID3_I;
+    Property<float> PID3_D;
+    Property<float> PID4_P;
+    Property<float> PID4_I;
+    Property<float> PID4_D;
+    Property<float> PID5_P;
+    Property<float> PID5_I;
+    Property<float> PID5_D;
+    Property<float> PID6_P;
+    Property<float> PID6_I;
+    Property<float> PID6_D;
 };
 
 extern DataStorage* DS;

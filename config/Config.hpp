@@ -11,8 +11,12 @@ class Config
 private:
     pugi::xml_document doc;
 public:
-    Config(){
-        pugi::xml_parse_result result = doc.load_file("DataStorage/config.xml");
+    Config(bool amIDeep){
+        pugi::xml_parse_result result;
+        if (amIDeep)
+            result = doc.load_file("src/DataStorage/config.xml");
+        else
+            result = doc.load_file("DataStorage/config.xml");
         logger->Log("config", result.description());
     }
     

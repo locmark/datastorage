@@ -13,13 +13,14 @@ using namespace std;
 template <typename type> class Property {
     private:
         type value;
-        function<void(type)> OnChange = NULL_FUNCTION;
+        function<void(type)> OnLocalChange = NULL_FUNCTION;
+        function<void(type)> OnRemoteChange = NULL_FUNCTION;
         uint8_t udpId = 250;    // not important value, if not changed => error (for deugging)
     public:
         Property() {
             function<void(void*)> UdpCallback = [this](void* value)->void{
                 this->value = *( (type*) value );
-                OnChange(this->value);
+                OnRemoteChange(this->value);
             };
 
             udpId = udp->RegisterNewDataToSyncAndReturnID(UdpCallback);
@@ -31,7 +32,7 @@ template <typename type> class Property {
 
         void Set(type val) {
             value = val;
-            OnChange(value);        // e.g. send value to I2C or show in GUI
+            OnLocalChange(value);        // e.g. send value to I2C or show in GUI
             SyncViaUdp();
         }
 
@@ -39,6 +40,14 @@ template <typename type> class Property {
 
         void SyncViaUdp() {
             udp->SyncProperty(udpId, (void*)&value, sizeof(type));
+        }
+
+        void SetOnLocalChangeFunction(function<void(type)> fnc) {
+            OnLocalChange = fnc;
+        }
+
+        void SetOnRemoteChangeFunction(function<void(type)> fnc) {
+            OnRemoteChange = fnc;
         }
 };
 
