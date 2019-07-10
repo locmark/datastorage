@@ -3,6 +3,12 @@
 
 #include "Property.hpp"
 
+#define GLOBAL_POSITIONING 		0
+#define LOCAL_POSITIONING 		1
+#define FREEFALL_POSITIONING 	2
+#define DEEP_MODE 				0
+#define ROBOT_ARM_MODE 			1
+
 class DataStorage {
     public:
     Property<int> engine1_speed;
@@ -25,6 +31,10 @@ class DataStorage {
     Property<float> dest_pos_pitch;
     Property<float> dest_pos_roll;
     Property<float> dest_pos_yaw;
+
+    Property<int> positioning_mode;
+    Property<bool> robot_arm_mode;
+    Property<bool> joy_active;
 
     Property<bool> module1_power_switch;
     Property<bool> module2_power_switch;
@@ -62,6 +72,8 @@ class DataStorage {
     Property<float> PID6_P;
     Property<float> PID6_I;
     Property<float> PID6_D;
+
+    Property<float> mag_field;
 };
 
 extern DataStorage* DS;
