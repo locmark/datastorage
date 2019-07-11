@@ -9,6 +9,17 @@
 #define DEEP_MODE 				0
 #define ROBOT_ARM_MODE 			1
 
+#define ARM_DISABLED			0
+#define ARM_ENABLED				1
+
+#define ARM_ENGINE_1			1
+#define ARM_ENGINE_2			2
+#define ARM_ENGINE_3			3
+#define ARM_ENGINE_4			4
+#define ARM_CLOSE				5
+#define ARM_OPEN				6
+#define ARM_ENABLE				65
+
 class DataStorage {
     public:
     Property<int> engine1_speed;
@@ -35,6 +46,7 @@ class DataStorage {
     Property<int> positioning_mode;
     Property<bool> robot_arm_mode;
     Property<bool> joy_active;
+    Property<bool> arm_enable;
 
     Property<bool> module1_power_switch;
     Property<bool> module2_power_switch;
@@ -74,6 +86,15 @@ class DataStorage {
     Property<float> PID6_D;
 
     Property<float> mag_field;
+
+    //robot arm
+    Property<int> arm_engine_1;
+    Property<int> arm_engine_2;
+    Property<int> arm_engine_3;
+    Property<int> arm_engine_4;
+    Property<int> arm_close;
+    Property<int> arm_open;
+
 };
 
 extern DataStorage* DS;
