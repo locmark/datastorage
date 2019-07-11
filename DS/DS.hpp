@@ -66,6 +66,15 @@ class DataStorage {
     Property<float> module7_current;
     Property<float> module8_current;
 
+    Property<float> module1_current_limit;
+	Property<float> module2_current_limit;
+	Property<float> module3_current_limit;
+	Property<float> module4_current_limit;
+	Property<float> module5_current_limit;
+	Property<float> module6_current_limit;
+	Property<float> module7_current_limit;
+	Property<float> module8_current_limit;
+
     Property<float> PID1_P;
     Property<float> PID1_I;
     Property<float> PID1_D;
