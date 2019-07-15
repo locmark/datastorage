@@ -3,6 +3,7 @@
 
 #include "Property.hpp"
 
+// buttons on controller
 #define GLOBAL_POSITIONING 		0
 #define LOCAL_POSITIONING 		1
 #define FREEFALL_POSITIONING 	2
@@ -22,12 +23,12 @@
 
 class DataStorage {
     public:
-    Property<int> engine1_speed;
-    Property<int> engine2_speed;
-    Property<int> engine3_speed;
-    Property<int> engine4_speed;
-    Property<int> engine5_speed;
-    Property<int> engine6_speed;
+    Property<int> engine_fl_speed;
+    Property<int> engine_fr_speed;
+    Property<int> engine_rl_speed;
+    Property<int> engine_rr_speed;
+    Property<int> engine_tl_speed;
+    Property<int> engine_tr_speed;
 
     Property<float> current_pos_x;
     Property<float> current_pos_y;
@@ -48,53 +49,56 @@ class DataStorage {
     Property<bool> joy_active;
     Property<bool> arm_enable;
 
-    Property<bool> module1_power_switch;
-    Property<bool> module2_power_switch;
-    Property<bool> module3_power_switch;
-    Property<bool> module4_power_switch;
-    Property<bool> module5_power_switch;
-    Property<bool> module6_power_switch;
-    Property<bool> module7_power_switch;
-    Property<bool> module8_power_switch;
+    Property<bool> engine_fl_power_switch;
+    Property<bool> engine_fr_power_switch;
+    Property<bool> engine_rl_power_switch;
+    Property<bool> engine_rr_power_switch;
+    Property<bool> engine_tl_power_switch;
+    Property<bool> engine_tr_power_switch;
+    Property<bool> arm_power_switch;
+    Property<bool> magnetometer_power_switch;
 
-    Property<float> module1_current;
-    Property<float> module2_current;
-    Property<float> module3_current;
-    Property<float> module4_current;
-    Property<float> module5_current;
-    Property<float> module6_current;
-    Property<float> module7_current;
-    Property<float> module8_current;
+    Property<float> engine_fl_current;
+    Property<float> engine_fr_current;
+    Property<float> engine_rl_current;
+    Property<float> engine_rr_current;
+    Property<float> engine_tl_current;
+    Property<float> engine_tr_current;
+    Property<float> arm_current;
+    Property<float> magnetometer_current;
 
-    Property<float> module1_current_limit;
-	Property<float> module2_current_limit;
-	Property<float> module3_current_limit;
-	Property<float> module4_current_limit;
-	Property<float> module5_current_limit;
-	Property<float> module6_current_limit;
-	Property<float> module7_current_limit;
-	Property<float> module8_current_limit;
+    Property<float> engine_fl_current_limit;
+	Property<float> engine_fr_current_limit;
+	Property<float> engine_rl_current_limit;
+	Property<float> engine_rr_current_limit;
+	Property<float> engine_tl_current_limit;
+	Property<float> engine_tr_current_limit;
+	Property<float> arm_current_limit;
+	Property<float> magnetometer_current_limit;
 
-    Property<float> PID1_P;
-    Property<float> PID1_I;
-    Property<float> PID1_D;
-    Property<float> PID2_P;
-    Property<float> PID2_I;
-    Property<float> PID2_D;
-    Property<float> PID3_P;
-    Property<float> PID3_I;
-    Property<float> PID3_D;
-    Property<float> PID4_P;
-    Property<float> PID4_I;
-    Property<float> PID4_D;
-    Property<float> PID5_P;
-    Property<float> PID5_I;
-    Property<float> PID5_D;
-    Property<float> PID6_P;
-    Property<float> PID6_I;
-    Property<float> PID6_D;
+    Property<float> PID_x_P;
+    Property<float> PID_x_I;
+    Property<float> PID_x_D;
+    Property<float> PID_y_P;
+    Property<float> PID_y_I;
+    Property<float> PID_y_D;
+    Property<float> PID_z_P;
+    Property<float> PID_z_I;
+    Property<float> PID_z_D;
+    Property<float> PID_pitch_P;
+    Property<float> PID_pitch_I;
+    Property<float> PID_pitch_D;
+    Property<float> PID_roll_P;
+    Property<float> PID_roll_I;
+    Property<float> PID_roll_D;
+    Property<float> PID_yaw_P;
+    Property<float> PID_yaw_I;
+    Property<float> PID_yaw_D;
 
-    Property<float> mag_field;
+    Property<float> mag_field_1;
+    Property<float> mag_field_2;
+    Property<float> mag_field_3;
+    Property<float> mag_field_4;
 
     //robot arm
     Property<int> arm_engine_1;
@@ -103,6 +107,7 @@ class DataStorage {
     Property<int> arm_engine_4;
     Property<int> arm_close;
     Property<int> arm_open;
+    Property<float> arm_grip_current;
 
 };
 
