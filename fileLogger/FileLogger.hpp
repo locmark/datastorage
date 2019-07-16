@@ -11,7 +11,6 @@
 #include <fstream>
 
 #include "../logger/Logger.hpp"
-#include "../exec/Exec.hpp"
 
 #define fileName "logs.txt"
 
