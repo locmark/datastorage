@@ -18,15 +18,16 @@ template <typename type> class Property {
         function<void(type)> OnLocalChange = NULL_FUNCTION;
         function<void(type)> OnRemoteChange = NULL_FUNCTION;
         uint8_t udpId = 250;    // not important value, if not changed => error (for deugging)
-        inline void LogToFile() {
-            fileLogger->Log(to_string(udpId).c_str(), to_string(value).c_str());
+        inline void LogToFile(type value) {
+            if(value != this->value)
+                fileLogger->Log(to_string(udpId).c_str(), to_string(value).c_str());
         }
     public:
         Property() {
             function<void(void*)> UdpCallback = [this](void* value)->void{
+                LogToFile(*( (type*) value ));
                 this->value = *( (type*) value );
                 OnRemoteChange(this->value);
-                LogToFile();
             };
 
             udpId = udp->RegisterNewDataToSyncAndReturnID(UdpCallback);
@@ -37,10 +38,10 @@ template <typename type> class Property {
         }
 
         void Set(type val) {
+            LogToFile(val);
             value = val;
             OnLocalChange(value);        // e.g. send value to I2C or show in GUI
             SyncViaUdp();
-            LogToFile();
         }
 
         inline void operator= (type val) { this->Set(val); }
