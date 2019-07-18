@@ -95,11 +95,19 @@ class DataStorage {
     Property<float> PID_yaw_I;
     Property<float> PID_yaw_D;
 
-    Property<float> mag_field_1;
-    Property<float> mag_field_2;
-    Property<float> mag_field_3;
-    Property<float> mag_field_4;
-
+    Property<float> mag_1_x;
+    Property<float> mag_1_y;
+    Property<float> mag_1_z;
+    Property<float> mag_2_x;
+    Property<float> mag_2_y;
+    Property<float> mag_2_z;
+    Property<float> mag_3_x;
+    Property<float> mag_3_y;
+    Property<float> mag_3_z;
+    Property<float> mag_4_x;
+    Property<float> mag_4_y;
+    Property<float> mag_4_z;
+	
     //robot arm
     Property<int> arm_engine_1;
     Property<int> arm_engine_2;
