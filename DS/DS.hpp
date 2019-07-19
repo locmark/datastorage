@@ -117,6 +117,11 @@ class DataStorage {
     Property<float> mag_4_y;
     Property<float> mag_4_z;
 	
+    Property<float> mag_1_t;
+    Property<float> mag_2_t;
+    Property<float> mag_3_t;
+    Property<float> mag_4_t;
+	
     //robot arm
     Property<int> arm_engine_1;
     Property<int> arm_engine_2;
