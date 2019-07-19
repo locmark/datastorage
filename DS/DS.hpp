@@ -48,6 +48,7 @@ class DataStorage {
     Property<bool> robot_arm_mode;
     Property<bool> joy_active;
     Property<bool> arm_enable;
+    Property<bool> PID_enable;
 
     Property<bool> engine_fl_power_switch;
     Property<bool> engine_fr_power_switch;
