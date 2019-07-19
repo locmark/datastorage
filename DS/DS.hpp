@@ -23,6 +23,14 @@
 
 class DataStorage {
     public:
+    //PID ENGINES TEST
+    Property<int> engine_fl_speed_requested;
+    Property<int> engine_fr_speed_requested;
+    Property<int> engine_rl_speed_requested;
+    Property<int> engine_rr_speed_requested;
+    Property<int> engine_tl_speed_requested;
+    Property<int> engine_tr_speed_requested;
+	
     Property<int> engine_fl_speed;
     Property<int> engine_fr_speed;
     Property<int> engine_rl_speed;
