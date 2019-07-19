@@ -9,6 +9,11 @@
 #include <iomanip>
 #include <vector>
 #include <fstream>
+#include <inttypes.h>
+#include <math.h>
+#include <stdio.h>
+#include <time.h>
+#include <sys/time.h>
 
 #include "../logger/Logger.hpp"
 
@@ -42,6 +47,12 @@ class FileLogger {
             file << std::setfill('0') << std::setw(2) << now->tm_min;
             file << ":";
             file << std::setfill('0') << std::setw(2) << now->tm_sec;
+
+            struct timeval  tv;
+            gettimeofday(&tv, NULL);
+
+            file << ":";
+            file << std::setfill('0') << std::setw(2) << tv.tv_usec;
         }
     public:
         FileLogger() {
